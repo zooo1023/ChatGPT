@@ -1,0 +1,66 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>工作周记</title>
+  <link rel="stylesheet" href="styles.css">
+</head>
+<body>
+  <main class="desktop-shell">
+    <section class="window" aria-labelledby="app-title">
+      <header class="title-bar">
+        <h1 id="app-title">工作周记</h1>
+        <div class="window-controls" aria-hidden="true">
+          <span></span><span></span><span></span>
+        </div>
+      </header>
+
+      <div class="toolbar" aria-label="周记操作">
+        <label>
+          本周开始日期
+          <input id="weekStart" type="date">
+        </label>
+        <button id="saveBtn" type="button">保存本周</button>
+        <button id="newWeekBtn" type="button">新建本周</button>
+        <button id="exportBtn" type="button">导出存档</button>
+        <label class="file-button" for="importFile">导入存档</label>
+        <input id="importFile" type="file" accept="application/json" hidden>
+        <span id="status" role="status" aria-live="polite">准备就绪</span>
+      </div>
+
+      <div class="content-grid">
+        <aside class="archive-panel" aria-labelledby="archive-title">
+          <h2 id="archive-title">周记存档</h2>
+          <ul id="archiveList" class="archive-list"></ul>
+        </aside>
+
+        <section class="journal-panel" aria-label="周记填写区域">
+          <table class="weekly-table">
+            <thead>
+              <tr>
+                <th scope="col">日期</th>
+                <th scope="col">时间段</th>
+                <th scope="col">每天的工作内容（可自由填写）</th>
+              </tr>
+            </thead>
+            <tbody id="journalBody"></tbody>
+            <tfoot>
+              <tr>
+                <th scope="row" colspan="2">本周总结</th>
+                <td><textarea id="weekSummary" placeholder="记录本周主要完成事项、问题与心得"></textarea></td>
+              </tr>
+              <tr>
+                <th scope="row" colspan="2">下周安排计划</th>
+                <td><textarea id="nextPlan" placeholder="记录下一周要推进的重点工作和计划"></textarea></td>
+              </tr>
+            </tfoot>
+          </table>
+        </section>
+      </div>
+    </section>
+  </main>
+
+  <script src="script.js"></script>
+</body>
+</html>
